@@ -1,0 +1,275 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainApp matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <header
+      class="navbar"
+    >
+      <div
+        class="navbar-container"
+      >
+        <a
+          aria-label="Go to Landing Page"
+          class="home-icon-link"
+          href="/"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 576 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"
+            />
+          </svg>
+        </a>
+        <div
+          class="logo"
+        >
+          My Favourite 
+          <span
+            class="highlight"
+          >
+            100
+          </span>
+           Songs Ever
+        </div>
+        <button
+          aria-label="Toggle menu"
+          class="burger"
+        >
+          <span
+            class="bar"
+          />
+          <span
+            class="bar"
+          />
+          <span
+            class="bar"
+          />
+        </button>
+        <nav
+          class="nav-links"
+        >
+          <button>
+            100–76
+          </button>
+          <button>
+            75–51
+          </button>
+          <button>
+            50–26
+          </button>
+          <button>
+            25–11
+          </button>
+          <button>
+            Top 10
+          </button>
+        </nav>
+        <nav
+          class="nav-drawer "
+        >
+          <div
+            class="drawer-header"
+          >
+            My Favourite 
+            <span
+              class="highlight"
+            >
+              100
+            </span>
+             Songs Ever
+          </div>
+          <button>
+            100–76
+          </button>
+          <button>
+            75–51
+          </button>
+          <button>
+            50–26
+          </button>
+          <button>
+            25–11
+          </button>
+          <button>
+            Top 10
+          </button>
+        </nav>
+      </div>
+    </header>
+    <div
+      class="container"
+    >
+      <div
+        class="song-card"
+      >
+        <div
+          class="blurred-bg"
+          style="background-image: url(https://via.placeholder.com/300);"
+        />
+        <div
+          class="glass-overlay"
+        >
+          <button
+            aria-label="Previous"
+            class="nav-chevron-button nav-left"
+            disabled=""
+          >
+            <svg
+              class="chevron-icon"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="15 18 9 12 15 6"
+              />
+            </svg>
+          </button>
+          <button
+            aria-label="Next"
+            class="nav-chevron-button nav-right"
+          >
+            <svg
+              class="chevron-icon"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="9 6 15 12 9 18"
+              />
+            </svg>
+          </button>
+          <div
+            class="song-body fade-in dark-text"
+          >
+            <div
+              class="song-header-group"
+            >
+              <div
+                class="song-number"
+              >
+                100
+              </div>
+              <h3
+                class="song-title"
+              >
+                <a
+                  href="https://open.spotify.com/search/Song%20A%20Artist%20A"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Song A
+                </a>
+              </h3>
+            </div>
+            <div
+              class="song-content"
+            >
+              <div
+                class="vote-controls-wrapper"
+              >
+                <div
+                  class="vote-controls"
+                >
+                  <button
+                    aria-label="Upvote"
+                    class="vote-button upvote "
+                  >
+                    ▲
+                  </button>
+                  <span
+                    class="vote-score"
+                  >
+                    10
+                  </span>
+                  <button
+                    aria-label="Downvote"
+                    class="vote-button downvote "
+                  >
+                    ▼
+                  </button>
+                </div>
+              </div>
+              <div
+                class="song-info"
+              >
+                <p>
+                  <strong>
+                    Artist:
+                  </strong>
+                   
+                  <a
+                    href="https://open.spotify.com/search/Artist%20A"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Artist A
+                  </a>
+                </p>
+                <p>
+                  <strong>
+                    Album:
+                  </strong>
+                   
+                  <a
+                    href="https://open.spotify.com/search/Album%20A%20Artist%20A"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Album A
+                  </a>
+                </p>
+                <p>
+                  <strong>
+                    Year:
+                  </strong>
+                   2010
+                </p>
+                <p
+                  class="song-description"
+                >
+                  Description A
+                </p>
+              </div>
+              <div
+                class="video-wrapper"
+              >
+                <iframe
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen=""
+                  frameborder="0"
+                  loading="lazy"
+                  src="https://www.youtube.com/embed/test1"
+                  title="Song A"
+                />
+              </div>
+              <div
+                class="bottom-nav-buttons"
+              >
+                <button
+                  class="nav-button"
+                  disabled=""
+                >
+                  Previous
+                </button>
+                <button
+                  class="nav-button"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

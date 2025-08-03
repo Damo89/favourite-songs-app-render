@@ -1,0 +1,866 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+:root {
+  --vh: 1vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Bebas Neue', sans-serif;
+  background: #fdfbf8;
+  color: #333;
+  overflow: auto;
+}
+
+/* === NAVBAR === */
+.navbar {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 1.5rem;
+  position: fixed;
+  height: clamp(3rem, 8vh, 4.5rem);
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: #333;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.burger .bar {
+  height: 3px;
+  width: 24px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links button {
+  background: #ffffff;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.nav-links button:hover {
+  background: #d30000;
+  color: white;
+  border-color: #d30000;
+  box-shadow: 0 4px 10px rgba(211, 0, 0, 0.3);
+}
+
+.nav-drawer {
+  display: none;
+}
+
+.drawer-header {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.drawer-header .highlight,
+.logo .highlight {
+  color: #d30000;
+}
+
+.home-icon-link {
+  font-size: 1.4rem;
+  color: #333;
+  padding: 0.4rem;
+  border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.home-icon-link:hover {
+  background-color: #d30000;
+  color: white;
+}
+
+@media (min-width: 769px) {
+  .home-icon-link {
+    margin-right: 1rem;
+  }
+}
+
+/* === MOBILE === */
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-drawer {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 75%;
+    background: rgba(255, 255, 255, 0.95);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .nav-drawer.open {
+    right: 0;
+  }
+
+  .nav-drawer button {
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .nav-drawer button:hover {
+    background: #d30000;
+    color: white;
+  }
+}
+
+/* === DESKTOP === */
+@media (min-width: 769px) {
+  .navbar-container {
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+
+  .nav-drawer {
+    display: none;
+  }
+
+  .nav-links {
+    margin-left: auto;
+  }
+}
+
+/* === CONTENT CONTAINER === */
+.container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  padding-top: calc(clamp(3rem, 8vh, 4.5rem) + env(safe-area-inset-top, 0px));
+}
+
+@media (max-width: 380px) and (max-height: 680px) {
+  .navbar {
+    height: clamp(3rem, 8vh, 0rem);
+  }
+  
+  .container {
+    padding-top: clamp(9rem, 8vh, 0rem);
+  }
+}
+
+/* === SONG CARD === */
+.song-card {
+  position: relative;
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.song-card.fade-out {
+  opacity: 0;
+}
+
+.fade-out {
+  animation: fadeOutDown 1s ease both;
+}
+
+@keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.blurred-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(2px);
+  opacity: 0.75;
+  z-index: 0;
+}
+
+.glass-overlay {
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(16px) brightness(1.2);
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.song-body {
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  overflow-y: auto;
+  color: #000;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 1);
+}
+
+.song-header-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.song-number {
+  background-color: #d30000;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.song-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  margin: 0;
+  padding: 0.25rem 1rem;
+  border-left: 5px solid #d30000;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  display: inline-block;
+  color: #111;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease-in-out;
+}
+
+.song-title:hover {
+  border-left-color: #111;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* === MOBILE PORTRAIT === */
+@media (max-width: 768px) and (orientation: portrait) {
+  .song-header-group {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0 1rem;
+    text-align: left;
+  }
+
+  .song-number {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .song-title {
+    flex: 1;
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 1.35;
+    margin: 0;
+    padding: 0.3rem;
+    border-left: 4px solid #d30000;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .song-title a {
+    font-size: inherit;
+    white-space: normal;
+    word-break: break-word;
+    display: inline;
+  }
+}
+
+@media (max-width: 400px) {
+  .song-title {
+    font-size: clamp(1.2rem, 4.5vw, 1.4rem);
+  }
+}
+
+/* === SONG INFO === */
+.song-info {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #222;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Responsive max width control */
+@media (max-width: 768px) {
+  .song-info {
+    padding: 1rem;
+  }
+}
+
+/* General style for all song-related links */
+.song-info a,
+.song-title a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  font-weight: 500; /* optional: slight emphasis */
+  transition: color 0.1s, text-decoration 0.1s;
+}
+
+/* On hover, show it's clickable */
+.song-info a:hover,
+.song-title a:hover {
+  text-decoration: underline;
+  color: #d30000;
+}
+
+/* === SONG DESCRIPTION === */
+.song-description {
+  font-style: italic;
+  text-align: center;
+  margin-top: 1.2rem;
+  font-size: 1.05rem;
+  color: #111;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  opacity: 0.9;
+}
+
+/* === NAVIGATION BUTTONS === */
+.nav-buttons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.nav-button {
+  background: #ffffff;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button:hover {
+  background-color: #d30000;
+  color: white;
+  border-color: #d30000;
+  box-shadow: 0 4px 10px rgba(211, 0, 0, 0.3);
+}
+
+.nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* === VIDEO WRAPPER === */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 50vh;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Reduce video height on smaller screens */
+@media (max-width: 400px), (max-height: 800px) {
+  .video-wrapper iframe {
+    max-height: 35vh;
+  }
+}
+
+@media (max-height: 760px) {
+  .video-wrapper iframe {
+    max-height: 80vh;
+  }
+
+  .song-body {
+    padding-bottom: 1rem;
+  }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 767px) {
+  .song-number {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .song-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Reduce button sizes on small mobile widths */
+@media (max-width: 400px) {
+  .nav-button {
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .nav-icon-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+}
+
+/* Landscape fix */
+@media (max-height: 450px) and (orientation: landscape) {
+  .song-number {
+    margin-top: 3rem;
+  }
+
+  .song-card {
+    justify-content: flex-start;
+  }
+
+  .song-body {
+    margin-top: 1rem;
+  }
+
+  .video-wrapper iframe {
+    max-height: 200px;
+  }
+}
+
+.song-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.vote-controls-wrapper {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 10;
+}
+
+.vote-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.4rem 0.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.vote-button {
+  all: unset;
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.2rem;
+  user-select: none;
+  color: #333;
+  transition: color 0.2s;
+}
+
+.vote-button:hover {
+  color: #d30000;
+}
+
+.vote-score {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .vote-controls-wrapper {
+    top: 0.25rem;
+    right: 0.25rem;
+  }
+
+  .vote-button {
+    font-size: 1rem;
+  }
+
+  .vote-score {
+    font-size: 1rem;
+  }
+
+  .vote-controls {
+    padding: 0.25rem 0.25rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .vote-button {
+    font-size: 0.7rem;
+  }
+
+  .vote-score {
+    font-size: 0.9rem;
+  }
+}
+
+/* === DESKTOP === */
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .song-content {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .song-info,
+  .video-wrapper {
+    flex: 1;
+  }
+
+  .song-info {
+    padding-right: 2rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .video-wrapper {
+    padding-bottom: 0;
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+
+  .video-wrapper iframe {
+    position: static;
+    width: 100%;
+    height: 100%;
+    max-height: none;
+  }
+}
+
+/* === ANIMATIONS === */
+.fade-in {
+  animation: fadeInUp 1s ease both;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === TOP NAV BUTTONS (Mobile/Tablet) === */
+.top-nav-buttons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .top-nav-buttons {
+    display: none;
+  }
+}
+
+/* === ICON NAVIGATION BUTTONS (Desktop) === */
+.nav-icon-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.85);
+  color: #333;
+  border: none;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-icon-button:hover {
+  background: #d30000;
+  color: #fff;
+}
+
+.nav-icon-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (min-width: 1024px) {
+  .glass-overlay {
+    position: relative;
+  }
+
+  .nav-icon-button {
+    display: flex;
+  }
+
+  .nav-left {
+    left: 30px;
+  }
+
+  .nav-right {
+    right: 30px;
+  }
+}
+
+.nav-chevron-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-chevron-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.chevron-icon {
+  width: 55px;
+  height: 55px;
+}
+
+.chevron-icon polyline {
+  fill: none;
+  stroke: black;
+  stroke-width: 3;
+  transition: stroke 0.2s ease-in-out;
+}
+
+.nav-chevron-button:hover .chevron-icon polyline {
+  stroke: #d30000;
+}
+
+/* Only show on desktop */
+@media (min-width: 1024px) {
+  .nav-chevron-button {
+    display: block;
+  }
+
+  .nav-left {
+    left: 30px;
+  }
+
+  .nav-right {
+    right: 30px;
+  }
+}
+
+/* Hide on mobile */
+@media (max-width: 1023px) {
+  .nav-chevron-button {
+    display: none;
+  }
+}
+
+.light-text {
+  color: black;
+  text-shadow: 0 1px 100px white;
+}
+
+.dark-text {
+  color: black;
+  text-shadow: 0 1px 100px white;
+}
+
+/* === MOBILE NAVIGATION BUTTONS BELOW VIDEO === */
+.bottom-nav-buttons {
+  display: none; /* Hidden by default */
+}
+
+@media (max-width: 1023px) {
+  .bottom-nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .bottom-nav-buttons .nav-button {
+    width: 45%;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+  }
+
+  /* Optional: on very small screens stack vertically */
+  @media (max-width: 480px) {
+    .bottom-nav-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .bottom-nav-buttons .nav-button {
+      width: 80%;
+    }
+  }
+}
+
+/* Remove previous top button on mobile */
+@media (max-width: 1023px) {
+  .top-nav-buttons {
+    display: none;
+  }
+}
